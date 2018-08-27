@@ -46,12 +46,27 @@ public class MainTest {
         List<Integer> answer2 = Arrays.asList(1, 3, 4);
 
         //When
-        List<List<Integer>> result = Main.collect(cards, expectNumber);
+        List<List<Integer>> result = Main.sort(Main.collect(cards, expectNumber));
 
         //Then
         assertThat(result.size(), is(2));
         assertTrue(result.get(0).equals(answer1));
         assertTrue(result.get(1).equals(answer2));
 
+    }
+
+    @Test
+    public void 중복저장_안됩니다() throws Exception {
+        //Given
+        List<Integer> cards = Arrays.asList(0, 0, 1, 0, 0);
+        int expectNumber = 1;
+        List<Integer> answer = Arrays.asList(0, 0, 1);
+
+        //When
+        List<List<Integer>> result = Main.sort(Main.collect(cards, expectNumber));
+
+        //Then
+        assertThat(result.size(), is(1));
+        assertTrue(result.get(0).equals(answer));
     }
 }
