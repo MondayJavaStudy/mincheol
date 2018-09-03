@@ -13,11 +13,13 @@ import static org.junit.Assert.assertTrue;
 /**
  * Created by mcpark on 8/20/18
  */
-public class MainTest {
+public class ThreeNumbersGameTest {
     @Test
     public void test() {
         System.out.println("TEST");
     }
+
+    private ThreeNumbersGame game = new ThreeNumbersGame();
 
     @Ignore
     @Test
@@ -46,7 +48,7 @@ public class MainTest {
         List<Integer> answer2 = Arrays.asList(1, 3, 4);
 
         //When
-        List<List<Integer>> result = Main.sort(Main.collect(cards, expectNumber));
+        List<List<Integer>> result = game.sort(game.collect(cards, expectNumber));
 
         //Then
         assertThat(result.size(), is(2));
@@ -63,7 +65,7 @@ public class MainTest {
         List<Integer> answer = Arrays.asList(0, 0, 1);
 
         //When
-        List<List<Integer>> result = Main.sort(Main.collect(cards, expectNumber));
+        List<List<Integer>> result = game.sort(game.collect(cards, expectNumber));
 
         //Then
         assertThat(result.size(), is(1));
